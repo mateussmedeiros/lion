@@ -1,0 +1,33 @@
+{
+  "name": "lion",
+  "description": "Lion is a simple boilerplate to start projects according to my workflow using Gulp",
+  "main": "Gulpfile.js",
+   "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "lion",
+    "gulp",
+    "html",
+    "css",
+    "javascript",
+    "sass",
+    "front-end",
+    "Generator"
+  ],
+  "authors": [
+    "Mateus Medeiros <mateus.sousamedeiros@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mateussmedeiros/lion",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "lion",
+  "version": "0.0.0",
+  "description": "Lion is a simple boilerplate to start projects according to my workflow using Gulp",
+  "main": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateussmedeiros/lion.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "bower",
+    "gulp",
+    "html",
+    "css",
+    "javascript",
+    "sass",
+    "front-end"
+  ],
+  "author": "Mateus de Sousa Medeiros",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mateussmedeiros/lion/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.9.1",
+    "gulp-sass": "~3.1.0",
+    "gulp-uglify": "~2.0.1",
+    "gulp-image-optimization": "~0.1.3",
+    "gulp-rename": "~1.2.2"
+  }
+}
