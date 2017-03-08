@@ -3,6 +3,17 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var rename = require("gulp-rename");
 var imageop = require('gulp-image-optimization');
+var browserSync = require('browser-sync').create();
+
+var files = [
+  'src/*.html',
+  'src/sass/*.scss',
+  'src/js/*.js'
+];
+
+var options = {
+  server: "./src"
+};
 
 // Minify JS
 gulp.task('uglify', function() {
@@ -23,13 +34,21 @@ gulp.task('images', function(cb) {
     })).pipe(gulp.dest('img')).on('end', cb).on('error', cb);
 });
 
-// Compile SASS
-gulp.task('sass', function () {
-  return gulp.src('src/sass/main.scss')
-    .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(gulp.dest('src/css'));
+// Static Server + watching html/scss/js files
+gulp.task('serve', ['sass'], function() {
+
+    browserSync.init(files, options)
+    
+    gulp.watch("src/sass/*.scss", ['sass']);
+    gulp.watch(files).on('change', browserSync.reload);
 });
- 
-gulp.task('sass:watch', function () {
-  gulp.watch('src/sass/*.scss', ['sass']);
+
+// Compile Sass into CSS & auto-inject into browsers
+gulp.task('sass', function() {
+    return gulp.src("src/sass/main.scss")
+        .pipe(sass())
+        .pipe(gulp.dest("src/css"))
+        .pipe(browserSync.stream());
 });
+
+gulp.task('default', ['serve']);
